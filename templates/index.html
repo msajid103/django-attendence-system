@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attandance System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  <h1 class="text-center text-success" id="message">{{message}}</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 p-4 bg-secondary mx-auto my-5">
+        <form action="/student/home/" method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="roll-no" class="form-label  text-light">Enter Your Roll No.</label>
+            <input name="roll" type="text" class="form-control" placeholder="Enter Your Roll No." exampleInputEmail1
+              aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label text-light">Password</label>
+            <input name="password" type="password" class="form-control" placeholder="Password" id="password">
+          </div>
+          <div class="mb-3">
+            <span class="text-light">Forgot Password: <a class="text-warning">Click here</a></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+     
+      setTimeout(function () {
+        let mes = document.getElementById('message')
+        
+        mes.style.display = 'none'
+      }, 5000)
+
+    </script>
+</body>
+
+</html>
